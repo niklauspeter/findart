@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
+from .models import Post
 
 # Create your views here.
 def home(request):
+    
     return render(request,'art/home.html')
 
 def about(request):
-    return HttpResponse('<h1>About page</h1>')
+    return render(request,'art/about.html')

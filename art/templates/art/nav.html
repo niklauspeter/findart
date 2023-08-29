@@ -64,51 +64,13 @@
                     </div>
                    
                     <ul>
-                      <li><a class="dropdown-item" href="">Home</a></li>
-                      <li><a class="dropdown-item" href="">Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'art-home' %}">Home</a></li>
+                      <li><a class="dropdown-item" href="{% url 'art-about' %}">Profile</a></li>
                       <li><a class="dropdown-item" href="">Upload artpiece </a></li>
                       <li><a class="dropdown-item" href="">Logout</li>
                       <li>subscriptions</li>
                     </ul>
                   </div>          
-<!--                 
-                <div class="">
-                    <div id="main">
-                        <div class="dropdown">
-                            <a class="btn btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"><span style="cursor:pointer">&#9776;</span>MENU
-                            </a>
-                          
-                            <div class="dropdown-menu" style="width:300px;">
-                                <a class="dropdown-item" href="">Home</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="">Profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="">Change password</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="">Upload new project</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="=">create Profile</a>
-                
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="">Blog</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href=">Heath Services</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="=">Notifications</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="">Logout <img style="width: 20px; float: right;"
-                                        src="https://image.flaticon.com/icons/png/512/126/126467.png" alt=""></a>
-                                        
-                                {% if user.is_superuser %}
-                                <div class="dropdown-divider"></div>
-                                <a class="nav-link" href="">Admin</a>
-                                    
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div class="col-md-1" style="padding-top:10px;">
                 <form class="form-inline my-2 my-lg-0" role="search" action="">
@@ -132,36 +94,11 @@
                                 <div class="user-image">
                                         <img src="{{profile.avatar.url}}" class="gallery-image" alt="" style= "width:40px; height:50px;">
                                 </div>
-                                <!-- <div class="dropdown">
-                                    <a class="btn btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false"><span style="cursor:pointer">&#9776;</span>
-                                    </a>
-                                    
-                                  
-                                    <div class="dropdown-menu" style="width:300px;">
-                                        <a class="dropdown-item" href="{% url 'Index'%}">Home</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{% url 'my-profile' %}">Profile</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/accounts/password/change">Change password</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{%url 'businesses'%}">Upload new business</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{%url 'new-blogpost'%}">create blog</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/logout">Logout <img style="width: 20px; float: right;"
-                                                src="https://image.flaticon.com/icons/png/512/126/126467.png" alt=""></a>
-
-                                        {% if user.is_superuser %}
-                                        <div class="dropdown-divider"></div>
-                                        <a class="nav-link" href="/admin">Admin</a>
-                                    
-                                        {% endif %}
-                                    </div>
-                                </div> -->
+                               
                             </div>
                             {% else %}
-                            <a class='btn btn-default' href="/accounts/login">Login</a>
+                            <a class='nav-item nav-link ' href="/accounts/login">Login</a>
+                            <a class='nav-item nav-link navbar-right' href="/accounts/login">register</a>
                             {% endif %}
                         </div>
                     </div>
