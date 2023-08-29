@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <!-- fonts -->
+    <style>
+        *{
+  margin: 0px;
+  padding: 0;
+  font-family: sans-serif;
+}
+#sticky-navigation {
+    background: rgba(255,255,255,0.9);
+}
+
+        #sidebar{
+          position:fixed;
+          width:200px;
+          height:100%;
+          background-color:rgba(255,255,255,0.9);
+          left:-200px;
+          transition:all 500ms linear;
+        }
+        #sidebar.active{
+          left:0px;
+        }
+        #sidebar ul li{
+          color:rgba(230,230,230,0.9);
+          list-style:none;
+          padding:15px 10px;
+          border-bottom:1px solid rgba(100,100,100,0.3);
+        }
+        #sidebar .toggle-btn{
+          position:absolute;
+          left:230px;
+          top:20px;
+        }
+        #sidebar .toggle-btn span{
+          display:block;
+          width:30px;
+          height:5px;
+          background: #151719;
+          margin:5px 0px;
+        }
+        </style>
+        <script>
+        function toggleSidebar(){
+          document.getElementById("sidebar").classList.toggle('active');
+        }
+        </script>
+</head>
+<body>
+    <div id="navbar" class="container-fluid" style="border-bottom: 1px solid rgb(255, 255, 255); background-color: white">
+        <div class="row">
+            <div class="col-md-1" style="padding-top:15px; border-right:1px solid rgb(226, 225, 225); font-family: 'Encode Sans Expanded', sans-serif;">
+                  <div id="sidebar">
+                  <div class="toggle-btn" onclick="toggleSidebar()">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                    </div>
+                   
+                    <ul>
+                      <li><a class="dropdown-item" href="">Home</a></li>
+                      <li><a class="dropdown-item" href="">Profile</a></li>
+                      <li><a class="dropdown-item" href="">Upload artpiece </a></li>
+                      <li><a class="dropdown-item" href="">Logout</li>
+                      <li>subscriptions</li>
+                    </ul>
+                  </div>          
+<!--                 
+                <div class="">
+                    <div id="main">
+                        <div class="dropdown">
+                            <a class="btn btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><span style="cursor:pointer">&#9776;</span>MENU
+                            </a>
+                          
+                            <div class="dropdown-menu" style="width:300px;">
+                                <a class="dropdown-item" href="">Home</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="">Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="">Change password</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="">Upload new project</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="=">create Profile</a>
+                
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="">Blog</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href=">Heath Services</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="=">Notifications</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="">Logout <img style="width: 20px; float: right;"
+                                        src="https://image.flaticon.com/icons/png/512/126/126467.png" alt=""></a>
+                                        
+                                {% if user.is_superuser %}
+                                <div class="dropdown-divider"></div>
+                                <a class="nav-link" href="">Admin</a>
+                                    
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-md-1" style="padding-top:10px;">
+                <form class="form-inline my-2 my-lg-0" role="search" action="">
+                    <input type="text" class="form-control my-2 my-sm-0 search-input" name="blog" placeholder="Search Art title" id="blog">
+                </form>
+                
+            </div>
+            <div class="col-md-8" style=" padding-top:5px;text-align:center;font-family: 'Comfortaa', cursive; letter-spacing:2px;">
+                <div class="row">
+                    <div class="col-md-10">
+                        <a class="navbar-brand navbar-right" href="" style="font-size:30px; color:black; "><strong>Msanii Art.</strong></a>
+                    </div>
+                    <div class="col-md-2" style="padding-top:10px;">
+                        <div class="row">
+                            <div class="col-md-4" style="padding-top:5px;">
+                                <a href="" style="font-size:13px; color:black; text-decoration: none;">{{ user.username }}</a>
+                            </div>
+                            <div class="col-md-8">
+                                    
+                                {% if user.is_authenticated %}
+                                <div class="user-image">
+                                        <img src="{{profile.avatar.url}}" class="gallery-image" alt="" style= "width:40px; height:50px;">
+                                </div>
+                                <!-- <div class="dropdown">
+                                    <a class="btn btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false"><span style="cursor:pointer">&#9776;</span>
+                                    </a>
+                                    
+                                  
+                                    <div class="dropdown-menu" style="width:300px;">
+                                        <a class="dropdown-item" href="{% url 'Index'%}">Home</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{% url 'my-profile' %}">Profile</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/accounts/password/change">Change password</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{%url 'businesses'%}">Upload new business</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{%url 'new-blogpost'%}">create blog</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/logout">Logout <img style="width: 20px; float: right;"
+                                                src="https://image.flaticon.com/icons/png/512/126/126467.png" alt=""></a>
+
+                                        {% if user.is_superuser %}
+                                        <div class="dropdown-divider"></div>
+                                        <a class="nav-link" href="/admin">Admin</a>
+                                    
+                                        {% endif %}
+                                    </div>
+                                </div> -->
+                            </div>
+                            {% else %}
+                            <a class='btn btn-default' href="/accounts/login">Login</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="padding-top:20px; padding-bottom: 20px; background-color: #49c5b6; text-align:center">
+                <a href="" style="color:white; font-size:14px; text-decoration: none; "> upload artpiece !
+                </a>
+              </div>
+        </div>
+    </div>
+</body>
+</html>
