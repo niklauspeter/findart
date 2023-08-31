@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick Ave Display" rel="stylesheet">
     <!-- fonts -->
     <style>
         *{
@@ -45,11 +47,19 @@
           background: #151719;
           margin:5px 0px;
         }
+        #navbar {
+          background-image: url("/static/art/img/artbackground.jpg");
+          background-size: cover;
+
+          /* Workaround for some mobile browsers */
+          min-height: 100%;
+        }
         </style>
         <script>
         function toggleSidebar(){
           document.getElementById("sidebar").classList.toggle('active');
         }
+        
         </script>
 </head>
 <body>
@@ -78,10 +88,10 @@
                 </form>
                 
             </div>
-            <div class="col-md-8" style=" padding-top:5px;text-align:center;font-family: 'Comfortaa', cursive; letter-spacing:2px;">
+            <div class="col-md-8" style=" padding-top:5px;text-align:center;font-family: 'Sedgwick Ave Display', cursive; letter-spacing:2px;">
                 <div class="row">
                     <div class="col-md-10">
-                        <a class="navbar-brand navbar-right" href="" style="font-size:30px; color:black; "><strong>FindArt.</strong></a>
+                        <a class="navbar-brand navbar-right" href="" style=" font-family: 'Sedgwick Ave Display', cursive; font-size:30px; color:black; "><strong>FindArt.</strong></a>
                     </div>
                     <div class="col-md-2" style="padding-top:10px;">
                         <div class="row">
@@ -98,17 +108,18 @@
                                 <a class='nav-item nav-link ' href="{% url 'logout' %}">Logout</a>
                             </div>
                             {% else %}
-                            <a class='nav-item nav-link ' href="{% url 'login' %}">Login</a>
-                            <a class='nav-item nav-link navbar-right' href="{% url 'register' %}">register</a>
+                            <a class='nav-item nav-link ' href="{% url 'login' %}" style="font-size:13px; color: black; text-decoration: none;">Login</a>
+                            <a class='nav-item nav-link navbar-right' href="{% url 'register' %}" style="font-size:13px; color: black; text-decoration: none;">register</a>
                             {% endif %}
                         </div>
                     </div>
                 </div>
+                
             </div>
             <div class="col-md-2" style="padding-top:10px; padding-bottom: 10px; background-color: #49c5b6; text-align:center">
-                <a href="" style="color:white; font-size:14px; text-decoration: none; "> upload artpiece !
-                </a>
-              </div>
+              <a href="" style="color:white; font-size:14px; text-decoration: none; "> upload artpiece !
+              </a>
+          </div>
         </div>
     </div>
 </body>
