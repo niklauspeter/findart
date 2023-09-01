@@ -7,5 +7,9 @@ def home(request):
     
     return render(request,'art/index.html')
 
+def landing(request):
+    
+    return render(request,'art/home.html')
+
 def about(request):
     return render(request,'art/about.html')
