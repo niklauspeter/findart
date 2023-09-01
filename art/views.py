@@ -5,7 +5,7 @@ from .models import Post
 # Create your views here.
 def home(request):
     
-    return render(request,'art/home.html')
+    return render(request,'art/index.html')
 
 def about(request):
     return render(request,'art/about.html')
