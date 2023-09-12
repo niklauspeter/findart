@@ -23,11 +23,11 @@ class Post(models.Model):
     def save(self):
         super().save()
 
-        img = Image.open(self.image.path)
-        if img.height > 700 or img.width > 700:
-            output_size = (700, 700)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+        # img = Image.open(self.image.path)
+        # if img.height < 700 or img.width < 700:
+        #     output_size = (700, 700)
+        #     img.thumbnail(output_size)
+        #     img.save(self.image.path)
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name="comments", on_delete = models.CASCADE)

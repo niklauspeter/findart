@@ -9,10 +9,13 @@
               <small class="text-muted">{{ post.date_posted }}</small>
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
             <a class="article-title" href="{% url 'post-detail' post.id %}">
-            <img class="article-image account-img" src="{{ post.image.url }}" >> 
-          </a>
+            <div style="text-align: center;">
+            <img class="article-image account-img" src="{{ post.image.url }}" >
+            </div>
+            </a>
+            <p class="article-content">{{ post.content }}</p>
+            
           </div>
         </article>
     {% endfor %}

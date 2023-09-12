@@ -5,6 +5,7 @@
         <div class="media-body">
         <div class="article-metadata">
             <a class="mr-2" href="#">{{ object.Artist }}</a>
+            <a class="mr-2" href="#">{{ object.name }}</a>
             <small class="text-muted">{{ object.date_posted }}</small>
             {% if object.Artist == user %}
             <div>
@@ -14,30 +15,35 @@
             {% endif %}
         </div>
         <h2 class="article-title">{{ object.title }}</h2>
-        <p class="article-content">{{ object.content }}</p>
+        <div style="text-align: center;"> 
         <img class="article-image account-img" src="{{ post.image.url }}">
+        </div>
+        <p class="article-content">{{ object.content }}</p>
+        
         <h2>Bids</h2>
         {% if not post.comments.all%}
             No Bids Yet ...<a href="{%url 'add_comment' post.pk %}">Place a bid</a>
             Add one</a>
         {% else %}
         <a href="{%url 'add_comment' post.pk %}">Place your bid</a>
+        <br>
                 {% for comment in post.comments.all %}
                     <strong>
-                        {{ comment.name }}
-                        {{ comment.date_added}}
-                        {{object.Artist}}
+                        {{object.Artist}}:
                     </strong>
+                        <!-- {{ comment.name }} -->
+                       <small> {{ comment.date_added}}</small>
+                       <strong>: ${{ comment.body }}</strong>
                     <br/>
-                    {{ comment.body }}
+                    
                     {% endfor %} 
         {% endif %}
         <br>
-        <p class="article-content">Starting Bid ${{ object.starting_bid }}</p>
+        <p class="article-content" style="color:red">Starting Bid ${{ object.starting_bid }}</p>
         <h3>How high can you go?</h3>
         <a href="{%url 'add_comment' post.pk %}">
         <br>
-        <button type="submit">Bid now</button>
+        <button type="submit" class="btnn btn-danger btn-sm mt-1 mb-1">Bid now</button>
         </a>
         <!-- <ul>
             {% for message in messages %}
