@@ -1,0 +1,22 @@
+<!-- chat_messages.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Messages</title>
+</head>
+<body>
+    <h1>Chat Messages</h1>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message.sender }}: {{ message.content }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="{% url 'send_message' conversation.id %}">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="Type your message">
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>
